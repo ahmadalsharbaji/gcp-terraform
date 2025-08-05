@@ -26,7 +26,7 @@ jobs:
 
       - name: Write GCP credentials to file
         run: |
-          printf "%s" "${{ secrets.GCP_SA_KEY }}" > account.json
+          echo '${{ secrets.GCP_SA_KEY }}' > account.json
 
       - name: Terraform Init
         run: terraform init

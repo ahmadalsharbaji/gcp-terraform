@@ -1,7 +1,7 @@
 provider "google" {
   credentials = file("account.json")
-  project = "gcp-terraform-demo-ax-001"
-  region  = "us-central1"
+  project     = "gcp-terraform-demo-ax-001"
+  region      = "us-central1"
 }
 
 resource "google_storage_bucket" "my_bucket" {

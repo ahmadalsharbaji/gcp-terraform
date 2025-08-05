@@ -17,6 +17,9 @@ jobs:
       run:
         shell: bash
 
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/account.json
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,8 +32,6 @@ jobs:
           echo '${{ secrets.GCP_SA_KEY }}' > account.json
 
       - name: Terraform Init
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/account.json
         run: terraform init
 
       - name: Terraform Format

@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket = "gcp-terraform-demo-ax-001-bucket"
+    prefix = "terraform/state"
+  }
+}
+
 provider "google" {
   credentials = file("account.json")
   project     = "gcp-terraform-demo-ax-001"

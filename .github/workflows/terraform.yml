@@ -2,7 +2,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
   pull_request:
 
 permissions:
@@ -28,8 +28,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Write GCP credentials to file
-        run: |
-          echo '${{ secrets.GCP_SA_KEY }}' > account.json
+        run: echo '${{ secrets.GCP_SA_KEY }}' > ${{ github.workspace }}/account.json
 
       - name: Terraform Init
         run: terraform init

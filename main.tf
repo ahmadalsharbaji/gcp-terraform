@@ -5,6 +5,7 @@ terraform {
   }
 }
 
+# Provider
 provider "google" {
   credentials = file("account.json")
   project     = "gcp-terraform-demo-ax-001"

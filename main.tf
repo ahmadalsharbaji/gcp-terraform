@@ -1,3 +1,4 @@
+# Terraform
 terraform {
   backend "gcs" {
     bucket = "gcp-terraform-demo-ax-001-bucket"
@@ -12,6 +13,7 @@ provider "google" {
   region      = "us-central1"
 }
 
+# Resource
 resource "google_storage_bucket" "my_bucket" {
   name                     = "gcp-terraform-demo-ax-001-bucket"
   location                 = "US"

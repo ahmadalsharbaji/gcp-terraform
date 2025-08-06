@@ -1,3 +1,4 @@
+# Terraform
 terraform {
   backend "gcs" {
     bucket = "gcp-terraform-demo-ax-001-bucket"
@@ -5,12 +6,14 @@ terraform {
   }
 }
 
+# Provider
 provider "google" {
   credentials = file("account.json")
   project     = "gcp-terraform-demo-ax-001"
   region      = "us-central1"
 }
 
+# Resource
 resource "google_storage_bucket" "my_bucket" {
   name                     = "gcp-terraform-demo-ax-001-bucket"
   location                 = "US"

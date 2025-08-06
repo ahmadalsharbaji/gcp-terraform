@@ -13,8 +13,14 @@ provider "google" {
   region      = "us-central1"
 }
 
-# Resource
+# Check if the bucket already exists
+data "google_storage_bucket" "existing_bucket" {
+  name = "gcp-terraform-demo-ax-001-bucket"
+}
+
+# Resource for creating the bucket if it does not exist
 resource "google_storage_bucket" "my_bucket" {
+  count                    = length(data.google_storage_bucket.existing_bucket.*.name) == 0 ? 1 : 0
   name                     = "gcp-terraform-demo-ax-001-bucket"
   location                 = "US"
   force_destroy            = true

@@ -42,3 +42,18 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve -input=false
+
+      # New step: Set up Python version 3.13.5
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13.5'  # Use your local Python version here
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-cloud-storage
+
+      # Run the main.py script from the root
+      - name: Run Python script
+        run: python main.py  # Since the script is in the root of the repo

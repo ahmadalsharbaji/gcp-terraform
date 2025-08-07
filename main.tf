@@ -29,8 +29,8 @@ resource "google_storage_bucket" "my_bucket" {
 
 # Creating a separate bucket for data (JSON, CSV, etc.)
 resource "google_storage_bucket" "data_bucket" {
-  name     = "gcp-terraform-demo-ax-001-data"  # Name of the new data bucket
-  location = "US"
-  force_destroy = true  # Optional: allows to delete the bucket even if it contains data
-  uniform_bucket_level_access = true  # Recommended for security, ensuring only authorized users have access
+  name                        = "gcp-terraform-demo-ax-001-data" # Name of the new data bucket
+  location                    = "US"
+  force_destroy               = true # Optional: allows to delete the bucket even if it contains data
+  uniform_bucket_level_access = true # Recommended for security, ensuring only authorized users have access
 }
